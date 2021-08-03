@@ -16,84 +16,6 @@ type CountryMedal struct {
 	AllMedals    int64
 }
 
-var AllCountries = []CountryMedal{
-	{
-
-		Country:      "China",
-		GoldMedals:   24,
-		SilverMedals: 14,
-		BronzeMedals: 13,
-	},
-	{
-
-		Country:      "Estados Unidos",
-		GoldMedals:   20,
-		SilverMedals: 23,
-		BronzeMedals: 16,
-	},
-	{
-
-		Country:      "Japon",
-		GoldMedals:   17,
-		SilverMedals: 5,
-		BronzeMedals: 9,
-	},
-	{
-		Country:      "COR",
-		GoldMedals:   12,
-		SilverMedals: 19,
-		BronzeMedals: 3,
-	},
-	{
-		Country:      "Australia",
-		GoldMedals:   14,
-		SilverMedals: 3,
-		BronzeMedals: 14,
-	},
-	{
-		Country:      "Gran Bretaña",
-		GoldMedals:   10,
-		SilverMedals: 10,
-		BronzeMedals: 12,
-	},
-	{
-		Country:      "Francia",
-		GoldMedals:   5,
-		SilverMedals: 10,
-		BronzeMedals: 6,
-	},
-	{
-		Country:      "Italia",
-		GoldMedals:   4,
-		SilverMedals: 10,
-		BronzeMedals: 15,
-	},
-	{
-		Country:      "Paises Bajos",
-		GoldMedals:   4,
-		SilverMedals: 12,
-		BronzeMedals: 5,
-	},
-	{
-		Country:      "Alemania",
-		GoldMedals:   4,
-		SilverMedals: 10,
-		BronzeMedals: 12,
-	},
-	{
-		Country:      "Nueva Zelanda",
-		GoldMedals:   4,
-		SilverMedals: 10,
-		BronzeMedals: 14,
-	},
-	{
-		Country:      "Colombia",
-		GoldMedals:   30,
-		SilverMedals: 10,
-		BronzeMedals: 14,
-	},
-}
-
 //Position
 type lessFunc func(p1, p2 *CountryMedal) bool
 
@@ -145,7 +67,7 @@ func (ms *multiSorter) Less(i, j int) bool {
 	return ms.less[k](p, q)
 }
 
-func Position() {
+func Position(AllCountries []CountryMedal) {
 	// Closures that order the Change structure.
 	gold := func(c1, c2 *CountryMedal) bool {
 		return c1.GoldMedals > c2.GoldMedals
@@ -158,6 +80,4 @@ func Position() {
 	}
 
 	OrderedBy(gold, silver, bronze).Sort(AllCountries)
-	//fmt.Println("By Gold,Silver,Bronze:", allCountries)
-
 }

@@ -19,12 +19,5 @@ func Config() {
 
 	// Migrate the schema
 	db.AutoMigrate(&models.CountryMedal{})
-	models.Position()
 
-	for i := 0; i < len(models.AllCountries); i++ {
-		models.AllCountries[i].AllMedals = models.AllCountries[i].GoldMedals +
-			models.AllCountries[i].SilverMedals + models.AllCountries[i].BronzeMedals
-		models.AllCountries[i].Position = i + 1
-	}
-	db.Create(&models.AllCountries)
 }

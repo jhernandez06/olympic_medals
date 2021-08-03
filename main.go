@@ -15,9 +15,6 @@ import (
 func main() {
 
 	data_base.Config()
-	//db.Find(&AllCountries)
-	//fmt.Println(&AllCountries)
-
 	r := mux.NewRouter().StrictSlash(true)
 	r.HandleFunc("/api/countries", api.GetCountries).Methods("GET")
 	r.HandleFunc("/api/countries/{id}", api.GetCountry).Methods("GET")
