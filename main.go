@@ -3,8 +3,10 @@ package main
 import (
 	"log"
 	"net/http"
-	"olympic-medals-table/actions"
-	"olympic-medals-table/data_base"
+
+	"olympic-medals/actions"
+	"olympic-medals/api"
+	"olympic-medals/data_base"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -17,8 +19,8 @@ func main() {
 	//fmt.Println(&AllCountries)
 
 	r := mux.NewRouter().StrictSlash(true)
-	r.HandleFunc("/api/countries", data_base.GetCountries).Methods("GET")
-	r.HandleFunc("/api/countries/{id}", data_base.GetCountry).Methods("GET")
+	r.HandleFunc("/api/countries", api.GetCountries).Methods("GET")
+	r.HandleFunc("/api/countries/{id}", api.GetCountry).Methods("GET")
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
 	r.HandleFunc("/", actions.FileServer)
 

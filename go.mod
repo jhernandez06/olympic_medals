@@ -1,4 +1,4 @@
-module olympic-medals-table
+module olympic-medals
 
 go 1.16
 
