@@ -80,4 +80,11 @@ func Position(AllCountries []CountryMedal) {
 	}
 
 	OrderedBy(gold, silver, bronze).Sort(AllCountries)
+
+	for i := 0; i < len(AllCountries); i++ {
+		AllCountries[i].AllMedals = AllCountries[i].GoldMedals +
+			AllCountries[i].SilverMedals + AllCountries[i].BronzeMedals
+		AllCountries[i].Position = i + 1
+	}
+
 }
