@@ -48,19 +48,19 @@ func Test_Position(t *testing.T) {
 	models.Position(TestCountries)
 
 	if TestCountries[0].Country != "Colombia" {
-		t.Error(" La posicion no es correcta")
+		t.Error("The position is not correct")
 		t.Fail()
 	} else {
 		t.Log("Correcto")
 	}
 	if TestCountries[2].Country != "China" {
-		t.Error(" La posicion no es correcta")
+		t.Error("The position is not correct")
 		t.Fail()
 	} else {
 		t.Log("Correcto")
 	}
 	if TestCountries[5].Country != "Australia" {
-		t.Error(" La posicion no es correcta")
+		t.Error("The position is not correct")
 		t.Fail()
 	} else {
 		t.Log("Correcto")
